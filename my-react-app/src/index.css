@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Prompt:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand-primary: #0A0A0F;
+  --brand-accent: #FF5500;
+  --brand-accent-glow: #FF7A33;
+  --brand-accent-soft: #FFF0E8;
+  --font-display: 'Plus Jakarta Sans', 'Prompt', sans-serif;
+  --font-body: 'Prompt', 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  color: #0f172a;
+  background-color: #fafafa;
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: #FF5500;
+  color: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Custom Design System Utilities */
+.brand-gradient {
+  background: linear-gradient(135deg, #0A0A0F 0%, #1C1C27 100%);
+}
+
+.brand-accent-gradient {
+  background: linear-gradient(135deg, #FF5500 0%, #FF7A33 100%);
+}
+
+.brand-glow {
+  box-shadow: 0 0 25px rgba(255, 85, 0, 0.35);
+}
+
+.brand-badge {
+  background: #FFF0E8;
+  color: #FF5500;
+  border: 1px solid rgba(255, 85, 0, 0.2);
+}
