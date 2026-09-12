@@ -240,32 +240,43 @@ export default function ProductChart() {
           </p>
         </div>
 
-        {/* Chart Type Toggle Tabs (Slide 22: Pie Chart / Bar Chart) */}
-        <div className="inline-flex rounded-xl bg-slate-100 p-1 text-xs font-semibold text-slate-600 border border-slate-200/80 self-start sm:self-auto">
-          <button
-            type="button"
-            onClick={() => setChartType("pie")}
-            className={`flex items-center gap-2 rounded-lg px-3.5 py-2 transition ${
-              chartType === "pie"
-                ? "bg-white text-slate-900 shadow-2xs font-bold"
-                : "hover:text-slate-900 hover:bg-white/50"
-            }`}
+        <div className="flex flex-wrap items-center gap-2 self-start sm:self-auto">
+          {/* Link to Orders Monthly Chart */}
+          <Link
+            to="/orders-chart"
+            className="inline-flex items-center gap-1.5 rounded-xl border border-blue-200 bg-blue-50/60 px-3 py-2 text-xs font-semibold text-blue-700 hover:bg-blue-100 transition"
           >
-            <PieChartIcon className={`w-4 h-4 ${chartType === "pie" ? "text-orange-600" : "text-slate-500"}`} />
-            <span>Pie Chart (สัดส่วน)</span>
-          </button>
-          <button
-            type="button"
-            onClick={() => setChartType("bar")}
-            className={`flex items-center gap-2 rounded-lg px-3.5 py-2 transition ${
-              chartType === "bar"
-                ? "bg-white text-slate-900 shadow-2xs font-bold"
-                : "hover:text-slate-900 hover:bg-white/50"
-            }`}
-          >
-            <BarChartIcon className={`w-4 h-4 ${chartType === "bar" ? "text-blue-600" : "text-slate-500"}`} />
-            <span>Bar Chart (แท่ง)</span>
-          </button>
+            <BarChartIcon className="w-4 h-4 text-blue-600" />
+            <span>สถิติยอดสั่งซื้อรายเดือน (Orders by Month) →</span>
+          </Link>
+
+          {/* Chart Type Toggle Tabs (Slide 22: Pie Chart / Bar Chart) */}
+          <div className="inline-flex rounded-xl bg-slate-100 p-1 text-xs font-semibold text-slate-600 border border-slate-200/80">
+            <button
+              type="button"
+              onClick={() => setChartType("pie")}
+              className={`flex items-center gap-2 rounded-lg px-3.5 py-2 transition ${
+                chartType === "pie"
+                  ? "bg-white text-slate-900 shadow-2xs font-bold"
+                  : "hover:text-slate-900 hover:bg-white/50"
+              }`}
+            >
+              <PieChartIcon className={`w-4 h-4 ${chartType === "pie" ? "text-orange-600" : "text-slate-500"}`} />
+              <span>Pie Chart (สัดส่วน)</span>
+            </button>
+            <button
+              type="button"
+              onClick={() => setChartType("bar")}
+              className={`flex items-center gap-2 rounded-lg px-3.5 py-2 transition ${
+                chartType === "bar"
+                  ? "bg-white text-slate-900 shadow-2xs font-bold"
+                  : "hover:text-slate-900 hover:bg-white/50"
+              }`}
+            >
+              <BarChartIcon className={`w-4 h-4 ${chartType === "bar" ? "text-blue-600" : "text-slate-500"}`} />
+              <span>Bar Chart (แท่ง)</span>
+            </button>
+          </div>
         </div>
       </div>
 

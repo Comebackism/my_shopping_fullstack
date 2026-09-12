@@ -12,6 +12,7 @@ import Orders from './components/Orders';
 import CustomerList from './components/CustomerList';
 import AdminPage from './components/AdminPage';
 import ProductChart from './components/ProductChart';
+import OrdersMonthlyChart from './components/OrdersMonthlyChart';
 import WorawatLogo from './components/WorawatLogo';
 import { UserIcon } from './components/Icons';
 
@@ -110,7 +111,19 @@ function App() {
                       }`
                     }
                   >
-                    Chart
+                    Product Stats
+                  </NavLink>
+                  <NavLink
+                    to="/orders-chart"
+                    className={({ isActive }) =>
+                      `rounded-lg px-3 py-1.5 transition ${
+                        isActive
+                          ? "bg-slate-900 text-white"
+                          : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
+                      }`
+                    }
+                  >
+                    Order Stats
                   </NavLink>
                   <NavLink
                     to="/customers"
@@ -215,6 +228,7 @@ function App() {
             <Route path="/admin/*" element={isAdmin ? <AdminPage /> : <Navigate to={token ? "/products" : "/login"} replace />} />
             <Route path="/orders" element={isAdmin ? <Orders /> : <Navigate to={token ? "/products" : "/login"} replace />} />
             <Route path="/chart" element={isAdmin ? <ProductChart /> : <Navigate to={token ? "/products" : "/login"} replace />} />
+            <Route path="/orders-chart" element={isAdmin ? <OrdersMonthlyChart /> : <Navigate to={token ? "/products" : "/login"} replace />} />
             <Route path="/login" element={<Login setToken={setToken} />} />
             <Route path="/register" element={<Register />} />
           </Routes>

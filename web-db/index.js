@@ -17,7 +17,7 @@ const { authenticateToken, isAdmin } = require("./middleware/authMiddleware");
 
 const { getAllCustomers, getCustomerById, getCustomerOrders } = require('./controllers/customersController');
 const { getAllProducts, getProductById, createProduct, updateProduct, deleteProduct, getProductStats } = require('./controllers/productsController');
-const { getAllOrders } = require('./controllers/ordersController');
+const { getAllOrders, getOrderMonthlyStats } = require('./controllers/ordersController');
 
 // Auth Routes
 app.post('/api/login', login);
@@ -29,9 +29,10 @@ app.get('/api/customers', authenticateToken, isAdmin, getAllCustomers);
 app.get('/api/customers/:id', authenticateToken, isAdmin, getCustomerById);
 app.get('/api/customers/:id/orders', authenticateToken, isAdmin, getCustomerOrders);
 
-// Stats Route (Chart.js Slide 8-9) - Restricted to Admin
+// Stats Route (Chart.js Slide 8-9 & 24) - Restricted to Admin
 app.get('/api/stats', authenticateToken, isAdmin, getProductStats);
 app.get('/api/products/stats', authenticateToken, isAdmin, getProductStats);
+app.get('/api/orders/stats/monthly', authenticateToken, isAdmin, getOrderMonthlyStats);
 
 // Products Routes
 app.get('/api/products', authenticateToken, getAllProducts);
