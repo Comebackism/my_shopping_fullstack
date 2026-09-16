@@ -30,6 +30,5 @@ Thumbs.db
 .git_backup/
 */.git_backup/
 
-# Testing
-coverage/
-*/coverage/
+# Archives
+*.zip
